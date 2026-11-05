@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ===== 1. ENCABEZADO DEL DOCUMENTO ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Irvin Daniel Hernández Márquez">
+  <title>Registro de la persona Usuaria</title>
+
+  <!-- Tipografías de Google Fonts: Outfit (títulos) y Source Sans 3 (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap">
+
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <main class="contenedor">
+
+    <!-- ===== 2. FORMULARIO ===== -->
+    <!-- action: archivo del servidor que procesaría los datos.
+         method="post": los datos viajan en el cuerpo de la petición
+         y no se muestran en la URL (necesario por la contraseña). -->
+    <form id="formulario-registro" action="registro.php" method="post">
+
+      <!-- 2.1 Título del formulario -->
+      <header class="encabezado">
+        <h1 id="titulo">Registro de la persona Usuaria</h1>
+        <p class="subtitulo">Completa tus datos para crear tu cuenta.
+          Los campos con <span class="obligatorio">*</span> son obligatorios.</p>
+      </header>
+
+      <!-- 2.2 Sección: datos personales (campos de texto) -->
+      <fieldset class="seccion">
+        <legend>Datos personales</legend>
+
+        <div class="fila">
+          <div class="campo">
+            <label for="nombre">Nombre <span class="obligatorio">*</span></label>
+            <input type="text" id="nombre" name="nombre"
+                   placeholder="Ej. Irvin" required>
+          </div>
+
+          <div class="campo">
+            <label for="apellido">Apellido <span class="obligatorio">*</span></label>
+            <input type="text" id="apellido" name="apellido"
+                   placeholder="Ej. Hernández" required>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="correo">Correo Electrónico <span class="obligatorio">*</span></label>
+          <input type="email" id="correo" name="correo"
+                 placeholder="usuario@correo.com" required>
+        </div>
+
+        <div class="campo">
+          <label for="contrasena">Contraseña <span class="obligatorio">*</span></label>
+          <input type="password" id="contrasena" name="contrasena"
+                 minlength="8" placeholder="Mínimo 8 caracteres" required>
+          <small class="ayuda">Usa al menos 8 caracteres.</small>
+        </div>
+      </fieldset>
+
+      <!-- 2.3 Sección: descripción (área de texto) -->
+      <fieldset class="seccion">
+        <legend>Sobre ti</legend>
+
+        <div class="campo">
+          <label for="descripcion">Breve descripción sobre ti</label>
+          <textarea id="descripcion" name="descripcion" rows="5" maxlength="300"
+                    placeholder="Cuéntanos quién eres y qué te gusta hacer..."></textarea>
+          <small class="ayuda">Máximo 300 caracteres.</small>
+        </div>
+      </fieldset>
+
+      <!-- 2.4 Sección: intereses (casillas de verificación) -->
+      <!-- Todas comparten name="intereses"; solo se envían las marcadas. -->
+      <fieldset class="seccion">
+        <legend>Intereses</legend>
+        <p class="indicacion">Selecciona todos los que apliquen:</p>
+
+        <div class="opciones">
+          <div class="opcion">
+            <input type="checkbox" id="interes-tecnologia" name="intereses"
+                   value="tecnologia">
+            <label for="interes-tecnologia">Tecnología</label>
+          </div>
+          <div class="opcion">
+            <input type="checkbox" id="interes-arte" name="intereses" value="arte">
+            <label for="interes-arte">Arte</label>
+          </div>
+          <div class="opcion">
+            <input type="checkbox" id="interes-deporte" name="intereses" value="deporte">
+            <label for="interes-deporte">Deporte</label>
+          </div>
+          <div class="opcion">
+            <input type="checkbox" id="interes-musica" name="intereses" value="musica">
+            <label for="interes-musica">Música</label>
+          </div>
+          <div class="opcion">
+            <input type="checkbox" id="interes-lectura" name="intereses" value="lectura">
+            <label for="interes-lectura">Lectura</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 2.5 Botón de envío -->
+      <div class="acciones">
+        <input type="submit" id="boton-registrarse" value="Registrarse">
+      </div>
+
+    </form>
+
+    <!-- ===== 3. PIE DE PÁGINA ===== -->
+    <footer class="pie">
+      <p>Reto 3 · Programación web del lado del cliente · UVEG</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
